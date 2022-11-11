@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { PropTypes } from "prop-types";
 
 export const AddCategory = ({ onNewCategory }) => {
    const [inputValue, setInputValue] = useState('');
@@ -18,7 +19,7 @@ export const AddCategory = ({ onNewCategory }) => {
 
    return (
       //<form onSubmit={(event) => onSubmit(event)}> Forma larga para recibir el evento cuando solo es un procedimiento a ejecutar.
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} aria-label="form">
          <input
             type="text"
             placeholder="Buscar gifs"
@@ -28,4 +29,8 @@ export const AddCategory = ({ onNewCategory }) => {
          />
       </form>
    )
+}
+
+AddCategory.protoTypes = {
+   onNewCategory: PropTypes.func.isRequired,
 }
